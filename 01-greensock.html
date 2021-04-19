@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Test animation</title>
+	<style type="text/css">
+		
+		#container {
+			width: 100%;
+			height: 300px;
+			margin: 0px;
+			padding: 0px;
+			border: solid 1px #000;
+			position: relative;
+		}
+
+		#html {
+			background: #71cd9a;
+		}
+
+		#logo {
+		    position: relative;
+		    /*background: url('img/logo.png') no-repeat center center;*/
+		    margin: 10px;
+		    width: 150px;
+		    height: auto;
+		}
+
+		#contenedorOpciones {
+			position: absolute;
+			bottom: 0px;
+			display: inline-block;
+		}
+
+	</style>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
+</head>
+<body>
+
+	<div id="container">
+			
+		<div id="html">
+			<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/320px-HTML5_logo_and_wordmark.svg.png" id="logo" />
+		</div>
+
+		<div id="contenedorOpciones">
+			
+			<button 
+				type="button" 
+				id="animar" 
+				class="animar"
+			>Animar</button>
+
+			<button 
+				type="button" 
+				id="reiniciar" 
+				class="reiniciar"
+			>Reiniciar</button>
+
+		</div>
+
+	</div>
+
+
+	<script type="text/javascript">
+		
+		var btnAnimar;
+		var btnReiniciar;
+		var animacion;
+		var logo;
+
+		window.onload=()=>{
+
+			btnAnimar=document.querySelector("#animar");
+			btnReiniciar=document.querySelector("#reiniciar");
+			logo=document.getElementById("logo");
+
+			btnAnimar.onclick=animar;
+			btnReiniciar.onclick=reiniciar;
+		}
+
+		function animar() {
+			
+			animacion=TweenLite.to(logo, 3, {
+        left: 400,
+        backgroundColor: "black",
+        borderRadius:50,
+        delay:2,
+        ease: Back.easeIn
+    	});
+
+		}
+
+		function reiniciar() {
+			animacion.restart();
+		}
+
+	</script>
+
+</body>
+</html>
